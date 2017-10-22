@@ -1,31 +1,38 @@
-<!-- Components info: https://webdev.dartlang.org/components -->
-<div>
-  <material-input label="What do you need to do?"
-                  autoFocus floatingLabel style="width:80%"
-                  [(ngModel)]="newTodo"
-                  (keyup.enter)="add()">
-  </material-input>
-
-  <material-fab mini raised
-                (trigger)="add()"
-                [disabled]="newTodo.isEmpty">
-    <glyph icon="add"></glyph>
-  </material-fab>
-</div>
-
-<p *ngIf="items.isEmpty">
-  Nothing to do! Add items above.
+<p *ngIf="artists.isEmpty">
+    No artists!
 </p>
 
-<div *ngIf="items.isNotEmpty">
-  <ul>
-      <li *ngFor="let item of items; let i=index">
-        <material-checkbox #done materialTooltip="Mark item as done">
-        </material-checkbox>
-        <span [class.done]="done.checked">{{item}}</span>
-        <material-fab mini (trigger)="remove(i)">
-          <glyph icon="delete"></glyph>
-        </material-fab>
-      </li>
-  </ul>
+<div *ngIf="artists.isNotEmpty">
+    <ul>
+        <li *ngFor="let artist of artists; let i=index">
+            <div class="artist-container">
+                <div class="name"><h2>{{artist.name}}</h2></div>
+                <div class="image">
+                    <img src="{{artist.imageUrl}}"/>
+                </div>
+                <div class="bio"><h3>Biographie</h3>
+                    <p>{{artist.bio}}</p></div>
+                <div class="website">
+                    <i class="fa fa-chrome" aria-hidden="true"></i>
+                    {{artist.websiteShort}}
+                </div>
+                <div class="facebook">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    {{artist.facebookHandle}}
+                </div>
+                <div class="youtubeHandle">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                    {{artist.youtubeHandle}}
+                </div>
+                <div class="twitterHandle">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    {{artist.twitterHandle}}
+                </div>
+                <div class="buttons">
+                    <material-button raised class="red" (trigger)="remove(i)">Delete</material-button>
+                    <material-button raised>Save</material-button>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>

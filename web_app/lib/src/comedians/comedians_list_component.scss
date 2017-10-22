@@ -1,3 +1,20 @@
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_button/mixins';
+
+$raised: 'material-button[raised]';
+$not-raised: 'material-button:not([raised])';
+
+:host {
+  @include button-background-color($raised + '.red', $mat-red);
+  @include button-color($raised + '.red', $mat-white);
+
+  @include button-color($not-raised + '.red', $mat-red);
+}
+
+.artist-container {
+  margin: 16px;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -11,15 +28,11 @@ li:hover {
   background-color: #EEEEEE;
 }
 
-li material-checkbox {
-  vertical-align: middle;
-}
-
 li material-fab {
   float: right;
   vertical-align: middle;
 }
 
-.done {
-  text-decoration: line-through;
+.buttons {
+  text-align: right;
 }

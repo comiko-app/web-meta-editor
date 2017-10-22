@@ -7,6 +7,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 
 import 'comedians_service.dart';
+import 'package:comiko_shared/models.dart';
 
 @Component(
   selector: 'comedians-list',
@@ -21,22 +22,19 @@ import 'comedians_service.dart';
 class ComediansListComponent implements OnInit {
   final ComediansService comediansService;
 
-  List<String> items = [];
-  String newTodo = '';
+  List<Artist> artists = [];
 
   ComediansListComponent(this.comediansService);
 
   @override
   Future<Null> ngOnInit() async {
-    items = await comediansService.getTodoList();
+    artists = await comediansService.getComedians();
   }
 
-  void add() {
-    items.add(newTodo);
-    newTodo = '';
-  }
+  void add() {}
 
-  String remove(int index) => items.removeAt(index);
+  Artist remove(int index) => artists.removeAt(index);
+
   void onReorder(ReorderEvent e) =>
-      items.insert(e.destIndex, items.removeAt(e.sourceIndex));
+      artists.insert(e.destIndex, artists.removeAt(e.sourceIndex));
 }

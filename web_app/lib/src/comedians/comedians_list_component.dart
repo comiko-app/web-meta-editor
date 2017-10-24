@@ -5,9 +5,10 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
-
-import 'comedians_service.dart';
 import 'package:comiko_shared/models.dart';
+
+import 'comedian_component.dart';
+import 'comedians_service.dart';
 
 @Component(
   selector: 'comedians-list',
@@ -16,6 +17,7 @@ import 'package:comiko_shared/models.dart';
   directives: const [
     CORE_DIRECTIVES,
     materialDirectives,
+    const [ComedianComponent]
   ],
   providers: const [ComediansService],
 )
@@ -30,11 +32,4 @@ class ComediansListComponent implements OnInit {
   Future<Null> ngOnInit() async {
     artists = await comediansService.getComedians();
   }
-
-  void add() {}
-
-  Artist remove(int index) => artists.removeAt(index);
-
-  void onReorder(ReorderEvent e) =>
-      artists.insert(e.destIndex, artists.removeAt(e.sourceIndex));
 }

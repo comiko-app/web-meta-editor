@@ -1,15 +1,3 @@
-@import 'package:angular_components/css/material/material';
-@import 'package:angular_components/material_button/mixins';
-
-$raised: 'material-button[raised]';
-$not-raised: 'material-button:not([raised])';
-
-:host {
-  @include button-background-color($raised + '.red', $mat-red);
-  @include button-color($raised + '.red', $mat-white);
-
-  @include button-color($not-raised + '.red', $mat-red);
-}
 
 .artist-container {
   margin: 16px;
@@ -31,8 +19,4 @@ li:hover {
 li material-fab {
   float: right;
   vertical-align: middle;
-}
-
-.buttons {
-  text-align: right;
 }

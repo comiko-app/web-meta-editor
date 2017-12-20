@@ -1,0 +1,63 @@
+/*
+Error: File to import not found or unreadable: package:angular_components/css/material/material.
+       Load path: /home/joel/code/comiko_dependencies/comedian-images-selector/web_app
+        on line 5 of ./build/web/packages/angular_components/src/material_tree/group/material_tree_group.scss
+
+1: // Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+2: // for details. All rights reserved. Use of this source code is governed by a
+3: // BSD-style license that can be found in the LICENSE file.
+4: 
+5: @import 'package:angular_components/css/material/material';
+6: @import 'package:angular_components/material_list/mixins';
+7: 
+8: $tree-item-right-padding: $mat-grid * 2;
+9: 
+10: // Hide the very top border. Doesn't separate anything - may be unwanted,
+
+Backtrace:
+./build/web/packages/angular_components/src/material_tree/group/material_tree_group.scss:5
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/import_node.rb:45:in `import'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:314:in `visit_import'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/usr/lib/ruby/gems/2.4.0/gems/sass-3.5.2/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/usr/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: package:angular_components/css/material/material.\A        Load path: /home/joel/code/comiko_dependencies/comedian-images-selector/web_app\A         on line 5 of ./build/web/packages/angular_components/src/material_tree/group/material_tree_group.scss\A \A 1: // Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file\A 2: // for details. All rights reserved. Use of this source code is governed by a\A 3: // BSD-style license that can be found in the LICENSE file.\A 4: \A 5: @import 'package:angular_components/css/material/material';\A 6: @import 'package:angular_components/material_list/mixins';\A 7: \A 8: $tree-item-right-padding: $mat-grid * 2;\A 9: \A 10: // Hide the very top border. Doesn't separate anything - may be unwanted,"; }

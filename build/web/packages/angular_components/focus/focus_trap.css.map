@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,KAAM;EACJ,OAAO,EAAE,KAAK;;AAahB,qBAAsB;EACpB,MAAM,EAAE,OAAO;EACf,UAAU,EAAE,OAAO;EACnB,UAAU,EAAE,OAAO",
+"sources": ["focus_trap.scss"],
+"names": [],
+"file": "focus_trap.css"
+}

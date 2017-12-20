@@ -1,0 +1,19 @@
+<!-- Components info: https://webdev.dartlang.org/components -->
+<p *ngIf="artists.isEmpty">
+    No artists!
+</p>
+
+<div *ngIf="artists.isNotEmpty">
+    <ul>
+        <li *ngFor="let artist of artists; let i=index">
+            <div class="artist-container">
+                <div class="name">{{artist.name}}</div>
+                <div class="bio"><p>{{artist.bio}}</p></div>
+                <div class="buttons">
+                    <material-button raised class="red" (trigger)="remove(i)">Delete</material-button>
+                    <material-button raised>Save</material-button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

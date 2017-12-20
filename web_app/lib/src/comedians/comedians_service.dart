@@ -22,7 +22,7 @@ class ComediansService {
   };
 
   ComediansService() {
-    var app = initializeApp(
+    final app = initializeApp(
         apiKey: config['apiKey'],
         authDomain: config['authDomain'],
         databaseURL: config['databaseURL'],
@@ -34,7 +34,7 @@ class ComediansService {
   }
 
   Future<List<Artist>> getArtists() async {
-    var artistsSnapshot = await fs.collection('artists').onSnapshot.first;
+    final artistsSnapshot = await fs.collection('artists').onSnapshot.first;
 
     return artistsSnapshot.docs
         .map((doc) => new Artist.fromJson(doc.data()))
@@ -67,10 +67,10 @@ class ComediansService {
   Future<List<Artist>> getComedians() async => artists;
 
   Stream<Artist> getArtistsAsStream() async* {
-    var artistsSnapshot = fs.collection('artists').onSnapshot;
+    final artistsSnapshot = fs.collection('artists').onSnapshot;
 
     await for (var changes in artistsSnapshot) {
-      for (var doc in changes.docChanges) {
+      for (final doc in changes.docChanges) {
         yield new Artist.fromJson(doc.doc.data());
       }
     }

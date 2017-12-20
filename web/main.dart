@@ -8,4 +8,3 @@ import 'package:comedian_images_selector/app_component.dart';
 void main() {
   bootstrap(AppComponent);
 }
-

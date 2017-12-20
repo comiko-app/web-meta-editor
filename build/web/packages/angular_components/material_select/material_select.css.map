@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA;;;UAGW;EACT,OAAO,EAAE,WAAW;EACpB,cAAc,EAAE,MAAM;;AAGxB;UACW;EACT,IAAI,EAAE,QAAQ;EACd,cAAc,EAAE,MAAM",
+"sources": ["material_select.scss"],
+"names": [],
+"file": "material_select.css"
+}

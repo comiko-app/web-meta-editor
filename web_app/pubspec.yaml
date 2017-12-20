@@ -3,12 +3,13 @@ description: A web app that uses AngularDart Components
 version: 0.0.1
 
 environment:
-  sdk: '>=1.24.0 <2.0.0'
+  sdk: '>=1.24.0 <2.1.0'
 
 dependencies:
-  angular: "^4.0.0"
-  angular_components: "^0.8.0"
-  firebase: '^4.0.0'
+  angular: "^5.0.0-alpha+1"
+  angular_components: "^0.9.0-alpha+1"
+  firebase:
+    git: https://github.com/firebase/firebase-dart
   sass_builder: '^1.0.0'
   comiko_shared:
     git: https://github.com/comiko-app/shared
@@ -17,6 +18,8 @@ dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
   test: ^0.12.0
+dependency_overrides:
+    analyzer: ^0.31.0-alpha.1
 
 transformers:
 - sass_builder

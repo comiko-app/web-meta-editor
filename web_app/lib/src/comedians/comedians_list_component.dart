@@ -30,6 +30,8 @@ class ComediansListComponent implements OnInit {
 
   @override
   Future<Null> ngOnInit() async {
-    artists = await comediansService.getComedians();
+    await for (final artist in comediansService.getArtistsAsStream()) {
+      artists.add(artist);
+    }
   }
 }

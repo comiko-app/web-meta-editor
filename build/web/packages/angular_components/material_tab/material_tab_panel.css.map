@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,KAAM;EACJ,OAAO,EAAE,KAAK;EAEd,uCAAoC;IAClC,MAAM,EAAE,MAAM",
+"sources": ["material_tab_panel.scss"],
+"names": [],
+"file": "material_tab_panel.css"
+}

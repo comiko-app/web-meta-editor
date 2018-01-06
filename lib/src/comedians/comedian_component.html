@@ -23,14 +23,17 @@
         <material-input [(ngModel)]="artist.twitter"></material-input>
     </div>
     <div class="image-selector">
-        <material-radio-group [(ngModel)]="selectedUrl">
+        <material-radio-group [(ngModel)]="selectedImageUrl">
             <material-radio *ngFor="let img of imgs"
                             class="radio-per-line"
+                            (click)="uploadSelectedImage()"
                             [value]="img"><img class="grid-item" src="{{img}}"/>
             </material-radio>
         </material-radio-group>
     </div>
+
     <div class="buttons">
+        <material-button raised (click)="showMorePictures()" >Change picture</material-button>
         <material-button raised class="red" (click)="deleteArtist($event)">Delete</material-button>
         <material-button raised (click)="updateArtist($event)">Save</material-button>
     </div>

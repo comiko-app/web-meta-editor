@@ -1,8 +1,12 @@
+import 'dart:async';
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'comedians_service.dart';
 import 'package:comiko_shared/models.dart';
+import '../google_image_service.dart';
 
 @Component(
   selector: 'comedian',
@@ -22,8 +26,8 @@ class ComedianComponent implements OnInit {
   @Input()
   Artist artist;
 
-  String selectedUrl;
-  List<String> imgs;
+  String selectedImageUrl;
+  List<String> imgs = [];
 
   final ComediansService comediansService;
 
@@ -31,13 +35,6 @@ class ComedianComponent implements OnInit {
 
   @override
   ngOnInit() {
-    imgs = [
-      r'http://www.envedette.ca/image/policy:1.1550744:1440435284/Jean-Thomas-Jobin.jpg?f=default&$p$f=6b81d5b&1024',
-      r'http://www.envedette.ca/image/policy:1.1550744:1440435284/Jean-Thomas-Jobin.jpg?f=default&$p$f=6b81d5b&1024',
-      r'http://www.envedette.ca/image/policy:1.1550744:1440435284/Jean-Thomas-Jobin.jpg?f=default&$p$f=6b81d5b&1024',
-      r'http://www.envedette.ca/image/policy:1.1550744:1440435284/Jean-Thomas-Jobin.jpg?f=default&$p$f=6b81d5b&1024',
-      r'http://www.envedette.ca/image/policy:1.1550744:1440435284/Jean-Thomas-Jobin.jpg?f=default&$p$f=6b81d5b&1024',
-    ];
   }
 
   deleteArtist(event) {
@@ -46,5 +43,13 @@ class ComedianComponent implements OnInit {
 
   updateArtist(event) {
     comediansService.updateArtist(artist);
+  }
+
+  Future<Null> showMorePictures() async {
+    imgs = await getFirstImageUrlFromGoogleApi(artist.name);
+  }
+
+  Future<Null> uploadSelectedImage() async {
+    comediansService.updateArtistImage(artist, selectedImageUrl);
   }
 }

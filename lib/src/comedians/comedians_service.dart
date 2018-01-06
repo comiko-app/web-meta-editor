@@ -7,10 +7,12 @@ import 'package:angular/core.dart';
 import 'package:comiko_shared/models.dart';
 import 'package:firebase/firebase.dart';
 import 'package:firebase/firestore.dart';
+import 'package:http/browser_client.dart';
 
 @Injectable()
 class ComediansService {
   Firestore fs;
+  Storage storage;
 
   static Map<String, String> config = {
     'apiKey': "AIzaSyCofRdDQb-Han2Qe4JHENgiT-rsW2UOwYE",
@@ -31,6 +33,7 @@ class ComediansService {
         name: 'Debug');
 
     fs = app.firestore();
+    storage = app.storage();
   }
 
   Future<List<Artist>> getArtists() async {
@@ -71,5 +74,29 @@ class ComediansService {
 
   Future<Null> updateArtist(Artist artist) async {
     await fs.collection("artists").doc(artist.id).update(data: artist.toJson());
+  }
+
+  Future<Null> updateArtistImage(Artist artist, String selectedImageUrl) async {
+    final client = new BrowserClient();
+    final response = await client
+        .get('https://cors-anywhere.herokuapp.com/$selectedImageUrl');
+    final imageData = response.bodyBytes;
+
+    final fileExtension = selectedImageUrl.split(".").last;
+
+    try {
+      final uploadResult = await storage
+          .ref("photos")
+          .child('${artist.name}.$fileExtension')
+          .put(imageData,
+              new UploadMetadata(contentType: 'image/$fileExtension'))
+          .future;
+
+      final uploadedUrl = uploadResult.downloadURL;
+      artist.imageUrl = uploadedUrl.toString();
+      updateArtist(artist);
+    } catch (e) {
+      print(e);
+    }
   }
 }

@@ -4,22 +4,23 @@
         <img src="{{artist.imageUrl}}"/>
     </div>
     <div class="bio"><h3>Biographie</h3>
-        <p>{{artist.bio}}</p></div>
+        <material-input multiline maxRows="5" [(ngModel)]="artist.bio"></material-input>
+    </div>
     <div class="website">
         <i class="fa fa-chrome" aria-hidden="true"></i>
-        {{artist.websiteShort}}
+        <material-input [(ngModel)]="artist.website"></material-input>
     </div>
     <div class="facebook">
         <i class="fa fa-facebook-official" aria-hidden="true"></i>
-        {{artist.facebookHandle}}
+        <material-input [(ngModel)]="artist.facebook"></material-input>
     </div>
     <div class="youtubeHandle">
         <i class="fa fa-youtube" aria-hidden="true"></i>
-        {{artist.youtubeHandle}}
+        <material-input [(ngModel)]="artist.youtube"></material-input>
     </div>
     <div class="twitterHandle">
         <i class="fa fa-twitter" aria-hidden="true"></i>
-        {{artist.twitterHandle}}
+        <material-input [(ngModel)]="artist.twitter"></material-input>
     </div>
     <div class="image-selector">
         <material-radio-group [(ngModel)]="selectedUrl">
@@ -31,6 +32,6 @@
     </div>
     <div class="buttons">
         <material-button raised class="red" (click)="deleteArtist($event)">Delete</material-button>
-        <material-button raised>Save</material-button>
+        <material-button raised (click)="updateArtist($event)">Save</material-button>
     </div>
 </div>

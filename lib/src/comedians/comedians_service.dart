@@ -68,4 +68,8 @@ class ComediansService {
         .doc(artist.id)
         .update(data: {"deleted": true});
   }
+
+  Future<Null> updateArtist(Artist artist) async {
+    await fs.collection("artists").doc(artist.id).update(data: artist.toJson());
+  }
 }

@@ -12,6 +12,8 @@ import 'package:comiko_shared/models.dart';
     CORE_DIRECTIVES,
     formDirectives,
     materialDirectives,
+    materialInputDirectives,
+    MaterialInputComponent,
     MaterialRadioComponent,
     MaterialRadioGroupComponent,
   ],
@@ -40,5 +42,9 @@ class ComedianComponent implements OnInit {
 
   deleteArtist(event) {
     comediansService.deleteArtist(artist);
+  }
+
+  updateArtist(event) {
+    comediansService.updateArtist(artist);
   }
 }

@@ -4,7 +4,7 @@
 
 <div *ngIf="artists.isNotEmpty">
     <ul>
-        <li *ngFor="let artist of artists.values; let i=index">
+        <li *ngFor="let artist of artists; let i=index">
             <comedian [artist]="artist"></comedian>
         </li>
     </ul>

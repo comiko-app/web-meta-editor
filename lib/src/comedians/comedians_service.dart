@@ -34,20 +34,18 @@ class ComediansService {
   }
 
   Future<List<Artist>> getArtists() async {
-    final artistsSnapshot = await fs.collection('artists').onSnapshot.first;
+    final artistsSnapshot = await fs
+        .collection('artists')
+        .where("deleted", "==", false)
+        .onSnapshot
+        .first;
 
     return artistsSnapshot.docs
         .map((doc) => new Artist.fromJson(doc.data()))
         .toList();
   }
 
-  Stream<Artist> getArtistsAsStream() async* {
-    final artistsSnapshot = fs.collection('artists').onSnapshot;
-
-    await for (final changes in artistsSnapshot) {
-      for (final doc in changes.docChanges) {
-        yield new Artist.fromJson(doc.doc.data());
-      }
-    }
+  Future<Null> deleteArtist(Artist artist) async {
+    await fs.collection("artists").doc(artist.id).update(data: {"deleted": true});
   }
 }

@@ -6,7 +6,7 @@ import 'dart:async';
 import 'package:angular/core.dart';
 import 'package:comiko_shared/models.dart';
 import 'package:firebase/firebase.dart';
-import 'package:firebase/firebase_firestore.dart';
+import 'package:firebase/firestore.dart';
 
 @Injectable()
 class ComediansService {
@@ -40,31 +40,6 @@ class ComediansService {
         .map((doc) => new Artist.fromJson(doc.data()))
         .toList();
   }
-
-  List<Artist> artists = [
-    new Artist(
-        name: 'Jean-Thomas Jobin',
-        bio: 'Biographie texte',
-        imageUrl:
-            'https://pbs.twimg.com/profile_images/600462018978652160/gjyZypDC.jpg',
-        website: 'www.jeanthomasjobin.com',
-        facebook: 'https://www.facebook.com/JeanThomasJobin',
-        twitter: 'https://twitter.com/JeanThomasJobin',
-        youtube: 'https://www.youtube.com/user/JeanThomasJobin',
-        id: '38120938209'),
-    new Artist(
-        name: 'Jean-Thomas Jobin',
-        bio: 'Biographie texte',
-        imageUrl:
-            'https://pbs.twimg.com/profile_images/600462018978652160/gjyZypDC.jpg',
-        website: 'www.jeanthomasjobin.com',
-        facebook: 'https://www.facebook.com/JeanThomasJobin',
-        twitter: 'https://twitter.com/JeanThomasJobin',
-        youtube: 'https://www.youtube.com/user/JeanThomasJobin',
-        id: '38120938209'),
-  ];
-
-  Future<List<Artist>> getComedians() async => artists;
 
   Stream<Artist> getArtistsAsStream() async* {
     final artistsSnapshot = fs.collection('artists').onSnapshot;

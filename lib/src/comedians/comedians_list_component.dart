@@ -24,14 +24,14 @@ import 'comedians_service.dart';
 class ComediansListComponent implements OnInit {
   final ComediansService comediansService;
 
-  List<Artist> artists = [];
+  Map<String, Artist> artists = {};
 
   ComediansListComponent(this.comediansService);
 
   @override
   Future<Null> ngOnInit() async {
     await for (final artist in comediansService.getArtistsAsStream()) {
-      artists.add(artist);
+      artists[artist.id] = artist;
     }
   }
 }

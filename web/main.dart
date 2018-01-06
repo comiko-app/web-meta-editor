@@ -4,7 +4,8 @@
 import 'package:angular/angular.dart';
 
 import 'package:comedian_images_selector/app_component.dart';
+import 'package:comedian_images_selector/app_component.template.dart' as ng;
 
 void main() {
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent, [], ng.initReflector);
 }

@@ -46,11 +46,8 @@ class ComediansService {
   }
 
   Stream<Artist> getArtistsAsStream() async* {
-    final artistsSnapshot = await fs
-        .collection('artists')
-        .where("deleted", "==", false)
-        .onSnapshot;
-
+    final artistsSnapshot =
+        await fs.collection('artists').where("deleted", "==", false).onSnapshot;
 
     await for (final changes in artistsSnapshot) {
       for (final change in changes.docChanges) {
@@ -66,6 +63,9 @@ class ComediansService {
   }
 
   Future<Null> deleteArtist(Artist artist) async {
-    await fs.collection("artists").doc(artist.id).update(data: {"deleted": true});
+    await fs
+        .collection("artists")
+        .doc(artist.id)
+        .update(data: {"deleted": true});
   }
 }

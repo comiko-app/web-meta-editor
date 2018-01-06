@@ -18,3 +18,8 @@ $not-raised: 'material-button:not([raised])';
 .grid-item {
   width: 20%;
 }
+
+material-input {
+    width: auto;
+    display: block;
+}

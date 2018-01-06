@@ -11,7 +11,10 @@ import 'src/comedians/comedians_list_component.dart';
 
 @Component(
   selector: 'my-app',
-  styleUrls: const ['app_component.css'],
+  styleUrls: const [
+    'app_component.css',
+    'package:angular_components/app_layout/layout.scss.css',
+  ],
   templateUrl: 'app_component.html',
   directives: const [materialDirectives, ComediansListComponent],
   providers: const [materialProviders],

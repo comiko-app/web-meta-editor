@@ -13,6 +13,7 @@ dependencies:
   comiko_shared:
     git: https://github.com/comiko-app/shared
   meta: '^1.1.2'
+  angular_router: "^2.0.0-alpha+4"
 
 dev_dependencies:
   build_runner: '^0.7.8'

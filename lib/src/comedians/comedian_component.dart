@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
-import 'comedians_service.dart';
 import 'package:comiko_shared/models.dart';
+
 import '../google_image_service.dart';
+import 'comedians_service.dart';
 
 @Component(
   selector: 'comedian',
@@ -34,8 +34,7 @@ class ComedianComponent implements OnInit {
   ComedianComponent(this.comediansService);
 
   @override
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   deleteArtist(event) {
     comediansService.deleteArtist(artist);

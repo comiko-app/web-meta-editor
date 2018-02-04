@@ -30,12 +30,12 @@ class ComediansListComponent implements OnInit {
 
   @override
   Future<Null> ngOnInit() async {
-    await for (final artist in comediansService.getArtistsAsStream()) {
+    comediansService.getArtistsAsStream().listen((Artist artist) {
       if (artist.deleted) {
         artists.remove(artist.id);
       } else {
         artists[artist.id] = artist;
       }
-    }
+    });
   }
 }

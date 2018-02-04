@@ -19,7 +19,6 @@ import 'comedians_service.dart';
     materialDirectives,
     const [ComedianComponent]
   ],
-  providers: const [ComediansService],
 )
 class ComediansListComponent implements OnInit {
   final ComediansService comediansService;

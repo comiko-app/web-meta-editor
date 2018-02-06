@@ -18,6 +18,7 @@ void main() {
       [
         routerProviders,
         provide(LocationStrategy, useClass: HashLocationStrategy),
+        const ClassProvider(FirebaseService),
         const ClassProvider(ComediansService),
       ],
       ng.initReflector);

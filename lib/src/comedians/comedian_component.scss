@@ -1,22 +1,9 @@
-@import 'package:angular_components/css/material/material';
-@import 'package:angular_components/material_button/mixins';
-
-$raised: 'material-button[raised]';
-$not-raised: 'material-button:not([raised])';
-
-:host {
-  @include button-background-color($raised + '.red', $mat-red);
-  @include button-color($raised + '.red', $mat-white);
-
-  @include button-color($not-raised + '.red', $mat-red);
-}
-
 .buttons {
   text-align: right;
 }
 
 .grid-item {
-  width: 20%;
+  width: 50%;
 }
 
 material-input {

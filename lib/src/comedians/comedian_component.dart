@@ -3,10 +3,8 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:comedian_images_selector/services.dart';
 import 'package:comiko_shared/models.dart';
-
-import '../google_image_service.dart';
-import 'comedians_service.dart';
 
 @Component(
   selector: 'comedian',
@@ -26,7 +24,8 @@ class ComedianComponent implements OnInit {
   @Input()
   Artist artist;
 
-  String selectedImageUrl;
+  String radioSelectedUrl;
+  String imageUrlTextboxValue;
   List<String> imgs = [];
 
   final ComediansService comediansService;
@@ -41,6 +40,8 @@ class ComedianComponent implements OnInit {
   }
 
   updateArtist(event) {
+    artist.imageUrl = radioSelectedUrl;
+
     comediansService.updateArtist(artist);
   }
 
@@ -48,7 +49,11 @@ class ComedianComponent implements OnInit {
     imgs = await getFirstImageUrlFromGoogleApi(artist.name);
   }
 
-  Future<Null> uploadSelectedImage() async {
-    comediansService.updateArtistImage(artist, selectedImageUrl);
+  Future<Null> uploadSelectedImage() {
+    return comediansService.updateArtistImage(artist, imageUrlTextboxValue);
+  }
+
+  void updateUrlTextbox() {
+    imageUrlTextboxValue = radioSelectedUrl;
   }
 }

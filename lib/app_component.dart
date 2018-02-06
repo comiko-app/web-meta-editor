@@ -11,6 +11,7 @@ import 'src/dashboard/dashboard_component.dart';
 
 // ignore: uri_has_not_been_generated
 import 'src/dashboard/dashboard_component.template.dart' as dashboard_component;
+
 // ignore: uri_has_not_been_generated
 import 'src/comedians/comedians_list_component.template.dart'
     as comedians_list_component;

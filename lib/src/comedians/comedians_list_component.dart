@@ -5,10 +5,10 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
+import 'package:comedian_images_selector/services.dart';
 import 'package:comiko_shared/models.dart';
 
 import 'comedian_component.dart';
-import 'comedians_service.dart';
 
 @Component(
   selector: 'comedians-list',

@@ -23,12 +23,15 @@
         <material-input [(ngModel)]="artist.twitter"></material-input>
     </div>
     <div class="image-selector">
-        <material-radio-group [(ngModel)]="selectedImageUrl">
+        <material-radio-group [(ngModel)]="radioSelectedUrl">
             <material-radio *ngFor="let img of imgs"
                             class="radio-per-line"
-                            (click)="uploadSelectedImage()"
+                            (click)="updateUrlTextbox()"
                             [value]="img"><img class="grid-item" src="{{img}}"/>
             </material-radio>
+
+            <material-input [(ngModel)]="imageUrlTextboxValue"></material-input>
+            <material-button raised (click)="uploadSelectedImage()">Save</material-button>
         </material-radio-group>
     </div>
 

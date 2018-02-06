@@ -20,7 +20,7 @@ import 'package:comiko_shared/models.dart';
     MaterialRadioGroupComponent,
   ],
 )
-class ComedianComponent implements OnInit {
+class ComedianComponent {
   @Input()
   Artist artist;
 
@@ -31,9 +31,6 @@ class ComedianComponent implements OnInit {
   final ComediansService comediansService;
 
   ComedianComponent(this.comediansService);
-
-  @override
-  ngOnInit() {}
 
   deleteArtist(event) {
     comediansService.deleteArtist(artist);

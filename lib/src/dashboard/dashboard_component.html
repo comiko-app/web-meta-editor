@@ -1,0 +1,10 @@
+<div id="container" *ngIf="isLoggedIn">
+    <material-button raised (click)="navigateToComedians()">Edit comedians</material-button>
+    <material-button raised (click)="clearAllImages()">Clear all images</material-button>
+    <material-button raised (click)="optimizeImages()">Optimize all pictures</material-button>
+</div>
+
+<div id="login">
+    <material-button *ngIf="isLoggedIn" raised class="red" (click)="logout()">Log out</material-button>
+    <material-button *ngIf="!isLoggedIn" raised (click)="initLogin()">Initiate login</material-button>
+</div>

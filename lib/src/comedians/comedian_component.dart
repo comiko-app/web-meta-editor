@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
-import 'comedians_service.dart';
+import 'package:comedian_images_selector/services.dart';
 import 'package:comiko_shared/models.dart';
-import '../google_image_service.dart';
 
 @Component(
   selector: 'comedian',
@@ -22,26 +20,25 @@ import '../google_image_service.dart';
     MaterialRadioGroupComponent,
   ],
 )
-class ComedianComponent implements OnInit {
+class ComedianComponent {
   @Input()
   Artist artist;
 
-  String selectedImageUrl;
+  String radioSelectedUrl;
+  String imageUrlTextboxValue;
   List<String> imgs = [];
 
   final ComediansService comediansService;
 
   ComedianComponent(this.comediansService);
 
-  @override
-  ngOnInit() {
-  }
-
   deleteArtist(event) {
     comediansService.deleteArtist(artist);
   }
 
   updateArtist(event) {
+    artist.imageUrl = radioSelectedUrl;
+
     comediansService.updateArtist(artist);
   }
 
@@ -49,7 +46,11 @@ class ComedianComponent implements OnInit {
     imgs = await getFirstImageUrlFromGoogleApi(artist.name);
   }
 
-  Future<Null> uploadSelectedImage() async {
-    comediansService.updateArtistImage(artist, selectedImageUrl);
+  Future<Null> uploadSelectedImage() {
+    return comediansService.updateArtistImage(artist, imageUrlTextboxValue);
+  }
+
+  void updateUrlTextbox() {
+    imageUrlTextboxValue = radioSelectedUrl;
   }
 }
